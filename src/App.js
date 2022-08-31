@@ -1,15 +1,15 @@
-import React from "react";
-import ApolloClient, { InMemoryCache } from "apollo-boost";
-import { ApolloProvider } from "@apollo/react-hooks";
-import { Route, Routes } from "react-router-dom";
-import GlobalStyles from "./styles/GlobalStyles";
-import Landing from "./pages/Landing";
-import Home from "./pages/Home";
-import Error from "./pages/Error";
+import React from 'react';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { Route, Routes } from 'react-router-dom';
+import GlobalStyles from './styles/GlobalStyles';
+import Landing from './pages/Landing';
+import Home from './pages/Home';
+import Error from './pages/Error';
 
 const client = new ApolloClient({
-  uri: "https://countries.trevorblades.com/",
-  cache: new InMemoryCache(),
+  uri: 'https://countries.trevorblades.com/',
+  cache: new InMemoryCache()
 });
 
 const App = () => (
