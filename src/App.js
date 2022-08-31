@@ -1,21 +1,27 @@
 import React from "react";
-import ApolloClient from "apollo-boost";
+import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
+import { Route, Routes } from "react-router-dom";
+import GlobalStyles from "./styles/GlobalStyles";
+import Landing from "./pages/Landing";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
 
 const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
+  uri: "https://countries.trevorblades.com/",
+  cache: new InMemoryCache(),
 });
 
 const App = () => (
   <ApolloProvider client={client}>
-    <div>
-      <h2>
-        My first Apollo app{" "}
-        <span role="img" aria-label="Rocket">
-          🚀
-        </span>
-      </h2>
-    </div>
+    <>
+      <GlobalStyles />
+      <Routes>
+        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </>
   </ApolloProvider>
 );
 export default App;
