@@ -21,7 +21,7 @@ const AllGroups = ({ countries, order }) => {
     }
   }, [order, countries]);
 
-  console.log('INFO--<', info);
+  // console.log('INFO--<', info);
 
   return (
     <section>

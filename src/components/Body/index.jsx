@@ -4,6 +4,7 @@ import { GET_COUNTRIES } from '../../graphql/queryCountries';
 import AllGroups from './AllGroups/';
 import Default from './Default';
 import Loader from './Loader';
+import Fail from './Fail';
 
 const Body = () => {
   const { data, loading, error } = useQuery(GET_COUNTRIES);
@@ -16,7 +17,7 @@ const Body = () => {
     if (data) {
       allCountries(data.countries);
     }
-  }, [data]);
+  }, [data, countries]);
 
   useEffect(() => {
     if (nameSearch.length > 0) {
@@ -27,7 +28,7 @@ const Body = () => {
       );
       setOrderOption('continent');
     }
-  }, [nameSearch]);
+  }, [nameSearch, countries]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -35,6 +36,7 @@ const Body = () => {
   };
 
   if (loading) return <Loader />;
+  if (error) return <Fail msg={error.message} />;
 
   return (
     <>
@@ -64,11 +66,9 @@ const Body = () => {
       </div>
       <main>
         <section>
-          {error ? (
-            <p>Error</p>
-          ) : orderOption != '' ? (
+          {orderOption !== '' ? (
             <AllGroups
-              countries={result != null ? result : countries}
+              countries={result !== null ? result : countries}
               order={orderOption}
             />
           ) : (
