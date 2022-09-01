@@ -11,7 +11,6 @@ const Card = ({ name, capital, emoji, lenguages }) => {
       </header>
       <div>
         <h6>Capital: {capital}</h6>
-        {/* <h6>Lenguajes: {lenguages}</h6> */}
       </div>
     </article>
   );
