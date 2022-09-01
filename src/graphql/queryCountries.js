@@ -2,17 +2,9 @@ import { gql } from 'apollo-boost';
 
 export const GET_COUNTRIES = gql`
   query getAllCountries {
-    continents {
-      code
-      name
-    }
-    languages {
-      code
-      name
-      native
-    }
     countries {
       name
+      emoji
       code
       continent {
         name
