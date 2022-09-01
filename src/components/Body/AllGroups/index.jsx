@@ -47,7 +47,6 @@ const AllGroups = ({ countries, order }) => {
                     </Link>
                   ))}
                 </div>
-                <hr />
               </div>
             );
           })
