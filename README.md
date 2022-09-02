@@ -1,7 +1,27 @@
 # Desafío para Software Engineers
 
-Nombre postulante: [TU NOMBRE]
-Link a la app en producción: [LINK DEL DEPLOY]
+Nombre postulante: [Francisco Daniel Molina]
+Link a la app en producción: [https://kimche-challenge-ruby.vercel.app/]
+
+
+## Consideraciones sobre el proyecto:
+<br/>
+- Incorporé una Landing para dar una mejor experiencia de usuario haciendo el recorrido desde un principio, con información sobre lo que va a poder obteter el usuario en el sitio.
+<br/>
+- Es responsive y al diseño lo realice inspirado en los colores de Kimche. 
+<br/>
+- El usuario necesita ingresar un nombre para poder ordenar el resultado según continente o lenguaje de cada pais que le interese.
+<br/>
+- Agregue una ruta de "Detalles" donde se puede ver más informacion sobre el pais que se seleccione desde todos los que se renderizan en la home.
+<br/>
+- El servicio que opte para el deploy fue Vercel.
+
+## Pregunta recibida:
+"La tabla que contiene la información correspondiente a la asistencia diaria de un niño en un colegio tiene 90 millones de filas. Todas las tablas del sistema existen en la misma BDD en MySQL. La lógica del backend que actualiza la información correspondiente al pasar la asistencia tiene un tiempo de servicio p95 de 10 segundos. El equipo está interesado en bajar este tiempo para mejorar la experiencia del usuario (y porque nos gusta pensar en Kimche como un Ferrari). ¿Qué propondrías para enfrentar el problema? Esta pregunta es abierta, no hay respuestas malas. Puedes proponer arquitectura, tecnologías, diseño, etc."
+
+## Mi respuesta:
+Según lo planteado, crearia un backup de toda esa BDD (en el caso de que no exista) y luego iria mutando a una base de datos tipo NoSQL por la cantidad de información que mencionaron en el planteo. Me imagine tambien usar servidores de GraphQL en el caso de que sean muchos desarrolladores consumiento esa informacion.
+
 
 ## Instrucciones
 
