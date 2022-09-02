@@ -22,7 +22,7 @@ const Details = () => {
   }, [data]);
 
   if (loading) return <Loader />;
-  if (error) return <Fail msg={error.message} />;
+  if (error) return <Fail />;
 
   return <CardDetails dataCountry={detail} />;
 };
