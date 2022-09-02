@@ -2,11 +2,17 @@
   "name": "kimchechallenge",
   "version": "0.1.0",
   "private": true,
+  "author": "Francisco D. Molina",
+  "keywords": [
+    "Challenge",
+    "Kimche Challenge"
+  ],
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@vercel/node": "^2.5.13",
     "apollo-boost": "^0.4.9",
     "babel-eslint": "^10.1.0",
     "eslint-config-prettier": "^8.5.0",
