@@ -57,10 +57,10 @@ const Body = () => {
           <span>Ordenar por:</span>
           <Styled.ButtonContainer>
             <Styled.Button onClick={() => setOrderOption('continent')}>
-              Continentes
+              <span>Continentes</span>
             </Styled.Button>
             <Styled.Button onClick={() => setOrderOption('language')}>
-              Lenguajes
+              <span>Lenguajes</span>
             </Styled.Button>
           </Styled.ButtonContainer>
         </Styled.OptionContainer>

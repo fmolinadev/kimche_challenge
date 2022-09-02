@@ -76,44 +76,54 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  margin-left: 10px;
   position: relative;
-  text-decoration: none;
-  padding: 0.7em 1em;
-  display: inline-block;
-  border-radius: 6em;
-  transition: all 0.2s;
-  border: none;
+  margin-left: 15px;
   font-weight: 500;
-  background-color: #2580ab;
-  color: white;
-  & ::hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  border-radius: 0.8em;
+  border: none;
+  background: linear-gradient(to right, #62c3d2, #f5ae16);
+  overflow: hidden;
+  @media (max-width: 720px) {
+    margin-left: 9px;
   }
-  &:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  & span {
+    position: relative;
+    color: white;
+    z-index: 10;
+    transition: color 0.4s;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6em 1.2em 0.6em 1.05em;
+    @media (max-width: 720px) {
+      padding: 0.5em 1em 0.5em 1.03em;
+    }
   }
+
+  &::before,
   &::after {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
-    transition: all 0.4s;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
   }
-  &::after {
-    background-color: #62c3d2;
-    opacity: 0.2;
+  &::before {
+    content: '';
+    background-color: #2580ab;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
   }
 
-  &:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+  &:hover::before {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 `;
