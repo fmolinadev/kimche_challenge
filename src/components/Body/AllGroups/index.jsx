@@ -6,6 +6,7 @@ import {
 } from '../../../utils/helpers';
 import { Link } from 'react-router-dom';
 import Card from './Card';
+import * as Styled from '../../../styles/AllGroups';
 
 const AllGroups = ({ countries, order }) => {
   const [info, setInfo] = useState('');
@@ -24,13 +25,13 @@ const AllGroups = ({ countries, order }) => {
   // console.log('INFO--<', info);
 
   return (
-    <section>
+    <Styled.AllGroups>
       {info !== ''
         ? info.map((orderGroups) => {
             return (
-              <div key={orderGroups[0]}>
-                <h4>{orderGroups[0]}</h4>
-                <div>
+              <Styled.RenderGroup key={orderGroups[0]}>
+                <Styled.Continent>{orderGroups[0]}:</Styled.Continent>
+                <Styled.AllCardContainer>
                   {orderGroups[1].map((item) => (
                     <Link
                       key={item.code}
@@ -42,16 +43,15 @@ const AllGroups = ({ countries, order }) => {
                         name={item.name}
                         capital={item.capital}
                         emoji={item.emoji}
-                        lenguages={item.lenguages}
                       />
                     </Link>
                   ))}
-                </div>
-              </div>
+                </Styled.AllCardContainer>
+              </Styled.RenderGroup>
             );
           })
         : null}
-    </section>
+    </Styled.AllGroups>
   );
 };
 
