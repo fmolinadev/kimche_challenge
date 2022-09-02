@@ -5,6 +5,7 @@ import AllGroups from './AllGroups/';
 import Default from './Default';
 import Loader from './Loader';
 import Fail from './Fail';
+import * as Styled from '../../styles/BodyStyles';
 
 const Body = () => {
   const { data, loading, error } = useQuery(GET_COUNTRIES);
@@ -39,31 +40,31 @@ const Body = () => {
   if (error) return <Fail msg={error.message} />;
 
   return (
-    <>
-      <div>
-        <div>
-          <label>
-            <span>Ingresá el nombre de un país:</span>
-            <input
-              type="text"
-              placeholder="Quiero información sobre..."
-              onChange={handleChange}
-            />
-            ;
-          </label>
-        </div>
-        <div>
-          <h5>Ordenar resultado por:</h5>
-          <div>
-            <button onClick={() => setOrderOption('continent')}>
+    <Styled.Body>
+      <Styled.Controller>
+        <Styled.SearchContainer>
+          <Styled.SearchSpan>Ingresá el país:</Styled.SearchSpan>
+          <Styled.Input
+            type="text"
+            placeholder="Quiero información sobre..."
+            onChange={handleChange}
+            maxlength="15"
+            pattern="[A-Za-z ]"
+            title="Solo admite letras. Longitud máxima: 15 caracteres "
+          />
+        </Styled.SearchContainer>
+        <Styled.OptionContainer>
+          <span>Ordenar por:</span>
+          <Styled.ButtonContainer>
+            <Styled.Button onClick={() => setOrderOption('continent')}>
               Continentes
-            </button>
-            <button onClick={() => setOrderOption('language')}>
+            </Styled.Button>
+            <Styled.Button onClick={() => setOrderOption('language')}>
               Lenguajes
-            </button>
-          </div>
-        </div>
-      </div>
+            </Styled.Button>
+          </Styled.ButtonContainer>
+        </Styled.OptionContainer>
+      </Styled.Controller>
       <main>
         <section>
           {orderOption !== '' ? (
@@ -76,7 +77,7 @@ const Body = () => {
           )}
         </section>
       </main>
-    </>
+    </Styled.Body>
   );
 };
 
