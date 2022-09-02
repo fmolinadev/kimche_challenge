@@ -1,52 +1,54 @@
 import React from 'react';
-import { goBack } from '../../../../utils/helpers';
+import { goBack, cleanDecoration } from '../../../../utils/helpers';
+import * as Styled from '../../../../styles/CardDetails';
 const CardDetails = ({ dataCountry }) => {
   return (
-    <>
-      <article>
-        <header>
-          <span>{dataCountry.emoji}</span>
-          <h1>{dataCountry.name}</h1>
-        </header>
-        <div>
-          <h5>
-            Capital:
-            {dataCountry.capital ? dataCountry.capital : 'Sin informacion'}
-          </h5>
-          <h5>
-            Moneda:{' '}
-            {dataCountry.currency ? dataCountry.currency : 'Sin informacion'}
-          </h5>
-          <h5>
-            Caract. Tel: +
-            {dataCountry.phone ? (
-              dataCountry.phone
-            ) : (
-              <span>Sin informacion</span>
-            )}
-          </h5>
-          <h5>
-            Nativo:{' '}
-            {dataCountry.native ? (
-              dataCountry.native
-            ) : (
-              <span>Sin informacion</span>
-            )}
-          </h5>
-          <div>
-            <h5>Idiomas:</h5>
-            {dataCountry.languages ? (
-              dataCountry.languages.map((e) => {
-                return <span key={e.name}>{e.name}</span>;
-              })
-            ) : (
-              <span>Sin informacion</span>
-            )}
-          </div>
-        </div>
-      </article>
-      <button onClick={goBack}>Volver</button>
-    </>
+    <Styled.Container>
+      <Styled.CardDetail>
+        <Styled.HeaderDetail>
+          <Styled.Emoji>{dataCountry.emoji}</Styled.Emoji>
+          <Styled.Name>{dataCountry.name}</Styled.Name>
+        </Styled.HeaderDetail>
+        <Styled.Data>
+          <Styled.DetailContainer>
+            <Styled.Info>Capital:</Styled.Info>
+            <Styled.Detail>
+              {dataCountry.capital ? dataCountry.capital : 'Sin informacion'}
+            </Styled.Detail>
+          </Styled.DetailContainer>
+          <Styled.DetailContainer>
+            <Styled.Info>Moneda:</Styled.Info>
+            <Styled.Detail>
+              {dataCountry.currency ? dataCountry.currency : 'Sin informacion'}
+            </Styled.Detail>
+          </Styled.DetailContainer>
+          <Styled.DetailContainer>
+            <Styled.Info>Caract. Tel: </Styled.Info>
+            <Styled.Detail>
+              {'+'}
+              {dataCountry.phone ? dataCountry.phone : 'Sin informacion'}
+            </Styled.Detail>
+          </Styled.DetailContainer>
+          <Styled.DetailContainer>
+            <Styled.Info>Nativo: </Styled.Info>
+            <Styled.Detail>
+              {dataCountry.native ? dataCountry.native : 'Sin informacion'}
+            </Styled.Detail>
+          </Styled.DetailContainer>
+          <Styled.DetailContainer>
+            <Styled.Info>Idiomas:</Styled.Info>
+            {dataCountry.languages
+              ? dataCountry.languages.map((e) => {
+                  return <Styled.Detail key={e.name}>{e.name}</Styled.Detail>;
+                })
+              : 'Sin informacion'}
+          </Styled.DetailContainer>
+        </Styled.Data>
+      </Styled.CardDetail>
+      <Styled.Button onClick={goBack}>
+        <span>Volver</span>
+      </Styled.Button>
+    </Styled.Container>
   );
 };
 
