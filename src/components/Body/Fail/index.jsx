@@ -1,18 +1,20 @@
 import React from 'react';
-import { goBack } from '../../../utils/helpers';
-const Fail = ({ msg }) => {
+import { Link } from 'react-router-dom';
+import FailGif from '../../../assets/error.gif';
+import * as Styled from '../../../styles/FailComponentStyles';
+import { goBack, cleanDecoration } from '../../../utils/helpers';
+const Fail = () => {
   return (
-    <div>
-      <div>
-        <h2>Error</h2>
-        <p>Algo salio mal al cargar los datos</p>
-        <button onClick={goBack}></button>
-      </div>
-      <span>Más detalles:</span>
-      <div>
-        <p>{msg}</p>
-      </div>
-    </div>
+    <Styled.Fail>
+      <Styled.Gif src={FailGif} alt="gif error" aria-label="imagen de error" />
+      <Styled.Warning>Ups...</Styled.Warning>
+      <Styled.Text>Ocurrió un error al cargar la información</Styled.Text>
+      <Styled.Button>
+        <Link to="/home" style={cleanDecoration}>
+          Ir a Home
+        </Link>
+      </Styled.Button>
+    </Styled.Fail>
   );
 };
 
