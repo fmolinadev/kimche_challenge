@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FailGif from '../../../assets/error.gif';
 import * as Styled from '../../../styles/FailComponentStyles';
-import { goBack, cleanDecoration } from '../../../utils/helpers';
+import { cleanDecoration } from '../../../utils/helpers';
 const Fail = () => {
   return (
     <Styled.Fail>
