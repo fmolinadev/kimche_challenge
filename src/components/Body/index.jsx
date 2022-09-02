@@ -36,8 +36,24 @@ const Body = () => {
     !e.target.value ? setOrderOption('') : setName(e.target.value);
   };
 
+  const handleContinent = (nameSearch) => {
+    if (nameSearch) {
+      setOrderOption('continent');
+    } else {
+      return alert('Debes ingresar un pais antes de ordenar.');
+    }
+  };
+
+  const handleLanguage = (nameSearch) => {
+    if (nameSearch) {
+      setOrderOption('language');
+    } else {
+      return alert('Debes ingresar un pais antes de ordenar.');
+    }
+  };
+
   if (loading) return <Loader />;
-  if (error) return <Fail msg={error.message} />;
+  if (error) return <Fail />;
 
   return (
     <Styled.Body>
@@ -56,10 +72,10 @@ const Body = () => {
         <Styled.OptionContainer>
           <span>Ordenar por:</span>
           <Styled.ButtonContainer>
-            <Styled.Button onClick={() => setOrderOption('continent')}>
+            <Styled.Button onClick={() => handleContinent(nameSearch)}>
               <span>Continentes</span>
             </Styled.Button>
-            <Styled.Button onClick={() => setOrderOption('language')}>
+            <Styled.Button onClick={() => handleLanguage(nameSearch)}>
               <span>Lenguajes</span>
             </Styled.Button>
           </Styled.ButtonContainer>
