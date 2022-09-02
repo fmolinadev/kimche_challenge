@@ -3,8 +3,9 @@ import imageBack from '../assets/map_background.jpg';
 
 export const Landing = styled.div`
   display: grid;
+  position: relative;
   grid-template-columns: 6fr 6fr;
-  height: 93vh;
+  height: 80vh;
   width: 100%;
   @media (max-width: 720px) {
     height: 90vh;
@@ -15,7 +16,7 @@ export const Landing = styled.div`
 
 export const LeftSide = styled.div`
   padding-left: 40px;
-  padding-top: 15%;
+  padding-top: 10%;
   @media (max-width: 720px) {
     padding-top: 35%;
     width: 80%;
