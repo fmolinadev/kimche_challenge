@@ -1,14 +1,8 @@
-import React from "react";
-import { goBack, cleanDecoration } from "../utils/helpers";
+import React from 'react';
+import Fail from '../components/Body/Fail';
 
 const Error = () => {
-  return (
-    <div>
-      <button onClick={(e) => goBack(e)} style={cleanDecoration}>
-        Volver
-      </button>
-    </div>
-  );
+  return <Fail />;
 };
 
 export default Error;
