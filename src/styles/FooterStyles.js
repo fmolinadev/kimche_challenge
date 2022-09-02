@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 export const Footer = styled.footer`
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
   justify-content: center;
   padding: 15px 0px;
   width: 100%;
   bottom: 0;
+  background-color: white;
 `;
 
 export const MiPortfolio = styled.span`
